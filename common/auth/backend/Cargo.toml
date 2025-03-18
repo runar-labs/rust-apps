@@ -1,0 +1,21 @@
+[package]
+name = "auth-service"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+kagi_node = { path = "../../../../node" }
+kagi_macros = { path = "../../../../kagi_macros" }
+tokio = { version = "1.0", features = ["full"] }
+anyhow = "1.0"
+async-trait = "0.1"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+chrono = { version = "0.4", features = ["serde"] }
+uuid = { version = "1.0", features = ["v4", "serde"] }
+bcrypt = "0.10"
+jsonwebtoken = "8.1"
+tracing = "0.1"
+
+[dev-dependencies]
+tokio-test = "0.4" 

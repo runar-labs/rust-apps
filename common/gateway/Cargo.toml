@@ -1,0 +1,35 @@
+[package]
+name = "kagi_gateway"
+version = "0.1.0"
+edition = "2021"
+authors = ["Kagi Team"]
+description = "Gateway implementation for the Kagi P2P stack"
+
+[[example]]
+name = "gateway_example"
+path = "../../../examples/gateway_example.rs"
+
+[dependencies]
+anyhow = "1.0"
+async-trait = "0.1"
+hyper = { version = "0.14", features = ["server", "http1", "http2", "tcp"] }
+linkme = { version = "0.3", features = ["used_linker"] }
+log = "0.4"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+serde_urlencoded = "0.7"
+tokio = { version = "1.25", features = ["full"] }
+tokio-tungstenite = "0.19"
+tungstenite = "0.19"
+tokio-util = "0.7"
+tower = "0.4"
+tower-http = { version = "0.4", features = ["cors", "trace"] }
+uuid = { version = "1.3", features = ["serde", "v4"] }
+kagi_node = { path = "../../../node" }
+axum = "0.6"
+futures = "0.3"
+chrono = { version = "0.4", features = ["serde"] }
+
+[lib]
+name = "kagi_gateway"
+path = "src/lib.rs" 
