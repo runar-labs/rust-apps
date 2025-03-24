@@ -1,6 +1,6 @@
 use anyhow::Result;
-use kagi_macros::main;
-use kagi_node::node::{Node, NodeConfig};
+use runar_macros::main;
+use runar_node::node::{Node, NodeConfig};
 use common::services::auth::AuthService;
 use common::services::profile::ProfileService;
 use crate::services::invoice::InvoiceService;
@@ -18,10 +18,10 @@ async fn main() -> Result<()> {
     // Create and initialize node
     let mut node = Node::new(config);
 
-    // Register services
-    node.register_service(AuthService::new()).await?;
-    node.register_service(ProfileService::new()).await?;
-    node.register_service(InvoiceService::new()).await?;
+    // Register services using the proper add_service method
+    node.add_service(AuthService::new()).await?;
+    node.add_service(ProfileService::new()).await?;
+    node.add_service(InvoiceService::new()).await?;
 
     // Start the node
     node.start().await?;
